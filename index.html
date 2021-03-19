@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    // 1. Viết một chương trình để nhập một chuỗi từ bàn phím và in ra màn hình độ dài của chuỗi đó.
+    let userInput1 = prompt("String");
+    function getLength(string) {
+        return string.length;
+    }
+    console.log("1. " + getLength(userInput1));
+
+    // 2: Viết hàm tính trung bình cộng của một mảng. mảng này người dùng nhập từ màn hình
+    let userInput2 = [];
+    for (let i = 0; i < 3; i++) {
+        userInput2[i] = Number(prompt("Number"));
+    }
+    function getAverageOfArray(array) {
+        let sum = 0;
+        for (let i = 0; i < array.length; i++) {
+            sum += array[i];
+        }
+        return sum/array.length;
+    }
+    console.log("2. " + getAverageOfArray(userInput2));
+
+    // 3: Viết hàm tìm giá trị lớn nhất, giá trị nhỏ nhất của một mảng. Mảng này người dùng nhập từ màn hình
+    let userInput3 = [];
+    for (let i = 0; i < 3; i++) {
+        userInput3[i] = Number(prompt("Number"));
+    }
+    function getMinMax(array) {
+        let max = array[0];
+        let min = array[0];
+        for (let i = 0; i < array.length; i++) {
+            if (max < array[i]) {
+                max = array[i];
+            }
+            if (min > array[i]) {
+                min = array[i];
+            }
+        }
+        return [max, min];
+    }
+    console.log("3. " + getMinMax(userInput3));
+
+    // 4: Viết hàm cộng trừ nhân chia hai số nhập từ màn hình
+    let userInput41 = Number(prompt("a"));
+    let userInput42 = Number(prompt("b"));
+    function addMinusMultiplyDivision(a,b) {
+        return [a+b,a-b,a*b,a/b];
+    }
+    console.log("4. " + addMinusMultiplyDivision(userInput41, userInput42));
+
+    // 5: Viết hàm kiểm tra giá trị người dùng nhập có phải là số nguyên hay không. hiển thị thông báo
+    let userInput5 = Number(prompt("Number"));
+    function checkInteger(number) {
+        return number === parseInt(number);
+    }
+    console.log("5. "+checkInteger(userInput5));
+
+    // 6: Viết hàm cho phép người dùng nhập tên là hiển thị lời chào
+    let userInput6 = prompt("Enter your name");
+    function displayGreeting(name) {
+        alert("hello " + name);
+    }
+    displayGreeting(userInput6);
+
+    // 7: Viết chương trình cho phép thêm mới một phần tử trong mảng
+    let userInput71 = [1,2,3];
+    let userInput72 = 4;
+    function addElementToArray(newElement, array) {
+        array[array.length] = newElement;
+    }
+    addElementToArray(userInput72,userInput71)
+    console.log("7. " + userInput71);
+
+    // 8: Viết chương trình cho phép xóa một phần tử trong mảng
+    let array8 = ["a","b","c", "b"];
+    let valueToRemove = "b";
+    function removeElement(arr,valueToRemove) {
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] === valueToRemove) {
+                arr.splice(i,1);
+                i--;
+            }
+        }
+    }
+    removeElement(array8, valueToRemove);
+    console.log("8. " + array8);
+
+    // 9: Viết chương trình cho phép tìm kiếm một phần tử trong mảng
+    let array9 = ["a","b","c"];
+    let findValue = "b";
+    function findIndex(array,value) {
+        let result = -1;
+        for (let i = 0; i < array.length; i++) {
+            if (array[i] === value) {
+                result = i;
+            }
+        }
+        return result;
+    }
+    console.log("9. " + findIndex(array9,findValue));
+
+    // 10: Viết chương trình đếm các số lượng các phần tử lặp trong mảng
+    let array10 = [1,2,3,4,2,4,3,5,6,7,8]
+    function countDuplicates(array) {
+        let result = 0;
+        let values = [];
+        let count = [];
+        let index = -1;
+        for (let i = 0; i < array.length; i++) {
+            let thisValue = array[i];
+            if (values.indexOf(thisValue) === -1) {
+                index++;
+                values[index] = thisValue;
+                count[index] = 1;
+            } else {
+                let where = values.indexOf(thisValue);
+                count[where]++;
+            }
+        }
+        for (let i = 0; i < count.length; i++) {
+            if (count[i] > 1) {
+                result++;
+            }
+        }
+        return result;
+    }
+
+    console.log("10. " + countDuplicates(array10));
+</script>
